@@ -54,10 +54,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.0/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/seitan/Desktop/program/Joycon2test
+CMAKE_SOURCE_DIR = /Users/seitan/Desktop/program/Joycon2forMac
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/seitan/Desktop/program/Joycon2test/build
+CMAKE_BINARY_DIR = /Users/seitan/Desktop/program/Joycon2forMac/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/Joycon2BLEViewerApp.dir/clean
 CMakeFiles/Joycon2BLEViewerApp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Joycon2BLEViewerApp.dir/build.make CMakeFiles/Joycon2BLEViewerApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Joycon2BLEViewerApp.dir/build.make CMakeFiles/Joycon2BLEViewerApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles --progress-num=1,2,3 "Built target Joycon2BLEViewerApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles --progress-num=1,2,3 "Built target Joycon2BLEViewerApp"
 .PHONY : CMakeFiles/Joycon2BLEViewerApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Joycon2BLEViewerApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Joycon2BLEViewerApp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles 0
 .PHONY : CMakeFiles/Joycon2BLEViewerApp.dir/rule
 
 # Convenience name for target.

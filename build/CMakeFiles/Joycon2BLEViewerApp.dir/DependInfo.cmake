@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/seitan/Desktop/program/Joycon2test/src/Joycon2BLEViewer.mm" "CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o" "gcc" "CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o.d"
-  "/Users/seitan/Desktop/program/Joycon2test/src/main.mm" "CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o" "gcc" "CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o.d"
+  "/Users/seitan/Desktop/program/Joycon2forMac/src/Joycon2BLEViewer.mm" "CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o" "gcc" "CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o.d"
+  "/Users/seitan/Desktop/program/Joycon2forMac/src/main.mm" "CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o" "gcc" "CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

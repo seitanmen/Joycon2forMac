@@ -1,6 +1,6 @@
 CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o: \
-  /Users/seitan/Desktop/program/Joycon2test/src/Joycon2BLEViewer.mm \
-  /Users/seitan/Desktop/program/Joycon2test/src/../include/Joycon2BLEViewer.h \
+  /Users/seitan/Desktop/program/Joycon2forMac/src/Joycon2BLEViewer.mm \
+  /Users/seitan/Desktop/program/Joycon2forMac/src/../include/Joycon2BLEViewer.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers/CoreBluetooth.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers/CBDefines.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers/CBCentralManager.h \

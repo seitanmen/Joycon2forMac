@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.0/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/seitan/Desktop/program/Joycon2test
+CMAKE_SOURCE_DIR = /Users/seitan/Desktop/program/Joycon2forMac
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/seitan/Desktop/program/Joycon2test/build
+CMAKE_BINARY_DIR = /Users/seitan/Desktop/program/Joycon2forMac/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Joycon2BLEViewerApp.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/Joycon2BLEViewerApp.dir/progress.make
 include CMakeFiles/Joycon2BLEViewerApp.dir/flags.make
 
 CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o: CMakeFiles/Joycon2BLEViewerApp.dir/flags.make
-CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o: /Users/seitan/Desktop/program/Joycon2test/src/main.mm
+CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o: /Users/seitan/Desktop/program/Joycon2forMac/src/main.mm
 CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o: CMakeFiles/Joycon2BLEViewerApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o -MF CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o.d -o CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o -c /Users/seitan/Desktop/program/Joycon2test/src/main.mm
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o -MF CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o.d -o CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o -c /Users/seitan/Desktop/program/Joycon2forMac/src/main.mm
 
 CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/seitan/Desktop/program/Joycon2test/src/main.mm > CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/seitan/Desktop/program/Joycon2forMac/src/main.mm > CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.i
 
 CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/seitan/Desktop/program/Joycon2test/src/main.mm -o CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/seitan/Desktop/program/Joycon2forMac/src/main.mm -o CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.s
 
 CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o: CMakeFiles/Joycon2BLEViewerApp.dir/flags.make
-CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o: /Users/seitan/Desktop/program/Joycon2test/src/Joycon2BLEViewer.mm
+CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o: /Users/seitan/Desktop/program/Joycon2forMac/src/Joycon2BLEViewer.mm
 CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o: CMakeFiles/Joycon2BLEViewerApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o -MF CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o.d -o CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o -c /Users/seitan/Desktop/program/Joycon2test/src/Joycon2BLEViewer.mm
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o -MF CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o.d -o CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o -c /Users/seitan/Desktop/program/Joycon2forMac/src/Joycon2BLEViewer.mm
 
 CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/seitan/Desktop/program/Joycon2test/src/Joycon2BLEViewer.mm > CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/seitan/Desktop/program/Joycon2forMac/src/Joycon2BLEViewer.mm > CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.i
 
 CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/seitan/Desktop/program/Joycon2test/src/Joycon2BLEViewer.mm -o CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/seitan/Desktop/program/Joycon2forMac/src/Joycon2BLEViewer.mm -o CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.s
 
 # Object files for target Joycon2BLEViewerApp
 Joycon2BLEViewerApp_OBJECTS = \
@@ -109,7 +109,7 @@ Joycon2BLEViewerApp: CMakeFiles/Joycon2BLEViewerApp.dir/src/main.mm.o
 Joycon2BLEViewerApp: CMakeFiles/Joycon2BLEViewerApp.dir/src/Joycon2BLEViewer.mm.o
 Joycon2BLEViewerApp: CMakeFiles/Joycon2BLEViewerApp.dir/build.make
 Joycon2BLEViewerApp: CMakeFiles/Joycon2BLEViewerApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Joycon2BLEViewerApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Joycon2BLEViewerApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Joycon2BLEViewerApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/Joycon2BLEViewerApp.dir/clean:
 .PHONY : CMakeFiles/Joycon2BLEViewerApp.dir/clean
 
 CMakeFiles/Joycon2BLEViewerApp.dir/depend:
-	cd /Users/seitan/Desktop/program/Joycon2test/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/seitan/Desktop/program/Joycon2test /Users/seitan/Desktop/program/Joycon2test /Users/seitan/Desktop/program/Joycon2test/build /Users/seitan/Desktop/program/Joycon2test/build /Users/seitan/Desktop/program/Joycon2test/build/CMakeFiles/Joycon2BLEViewerApp.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/seitan/Desktop/program/Joycon2forMac/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/seitan/Desktop/program/Joycon2forMac /Users/seitan/Desktop/program/Joycon2forMac /Users/seitan/Desktop/program/Joycon2forMac/build /Users/seitan/Desktop/program/Joycon2forMac/build /Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles/Joycon2BLEViewerApp.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Joycon2BLEViewerApp.dir/depend
 
