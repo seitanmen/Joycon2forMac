@@ -109,15 +109,15 @@ int main(int argc, const char* argv[]) {
         }
 
         time_t endTime = time(NULL);
-        std::cout << "👋 Shutting down Joy-Con2 BLE Client at " << endTime << "..." << std::endl;
+        std::cout << "👋 Shutting down Joy-Con2 BLE Client at " << endTime << "ms..." << std::endl;
         std::cout << "📊 Final data counter: " << dataReceiveCounter << " packets received" << std::endl;
 
         // 接続時間を計算して表示
         if (connectionStartTime > 0) {
             time_t connectionDuration = endTime - connectionStartTime;
-            std::cout << "⏱️  Connection duration: " << connectionDuration << " seconds (" << connectionDuration / 60 << " minutes " << connectionDuration % 60 << " seconds)" << std::endl;
+            std::cout << "⏱️ Connection duration: " << connectionDuration << " seconds (" << connectionDuration / 60 << " minutes " << connectionDuration % 60 << " seconds)" << std::endl;
         } else {
-            std::cout << "⏱️  No connection was established" << std::endl;
+            std::cout << "⏱️ No connection was established" << std::endl;
         }
 
         std::cout << "📊 Final status: Program terminated normally" << std::endl;

@@ -87,10 +87,10 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
     switch (central.state) {
         case CBManagerStatePoweredOn:
         std::cout << "Bluetooth is powered on." << std::endl;
-        // Auto-start scanning if we were waiting for Bluetooth
-        // if (self.shouldScan) {
-        // [self startScan];
-        //}
+        //Auto-start scanning if we were waiting for Bluetooth
+        if (self.shouldScan) {
+            [self startScan];
+        }
         break;
         case CBManagerStatePoweredOff:
         std::cout << "Bluetooth is powered off." << std::endl;
@@ -170,7 +170,7 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
 - (void)centralManager:(CBCentralManager*)central didConnectPeripheral:(CBPeripheral*)peripheral {
     log("SECTION", "------ Connection Established ------");
     std::string nameStr = peripheral.name ? [peripheral.name UTF8String] : "Unknown";
-    log("SUCCESS", "Connected to Joy-Con: " + nameStr);
+    log("SUCCESS", "Connected to: " + nameStr);
     log("INFO", "Discovering services and characteristics...");
 
     // 接続状態を更新
@@ -345,7 +345,8 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
 
             // データ受信のログを追加（詳細）
             dataReceiveCounter++;
-            log("SECTION", "------ Data Packet #" + std::to_string(dataReceiveCounter) + " ------");
+            std::string nameStr = peripheral.name ? [peripheral.name UTF8String] : "Unknown";
+            log("SECTION", "------ " + nameStr + " Data Packet #" + std::to_string(dataReceiveCounter) + " ------");
             log("INFO", "Received data packet #" + std::to_string(dataReceiveCounter) + " (" + std::to_string(data.length) + " bytes)");
 
 
