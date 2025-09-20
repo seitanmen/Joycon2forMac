@@ -36,15 +36,11 @@ if [ ! -f "CMakeLists.txt" ]; then
 fi
 
 # Parse command line arguments
-CLEAN=false
+CLEAN=true
 BUILD_TYPE="Release"
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        clean)
-            CLEAN=true
-            shift
-            ;;
         debug)
             BUILD_TYPE="Debug"
             shift
@@ -56,7 +52,6 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             echo "Usage: $0 [options]"
             echo "Options:"
-            echo "  clean     Clean build directory before building"
             echo "  debug     Build in Debug mode"
             echo "  release   Build in Release mode (default)"
             echo "  -h, --help Show this help message"

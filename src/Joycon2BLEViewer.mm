@@ -657,61 +657,123 @@ static int dataCounter = 0;
         return; // 表示しない
     }
 
+    #ifdef DEBUG
+        // Debugモード: 通常のログ出力
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - connectionStartTime).count();
+        log("DATA", "Elapsed: " + std::to_string(elapsed) + " ms");
 
-    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - connectionStartTime).count();
-    log("DATA", "Elapsed: " + std::to_string(elapsed) + " ms");
+        std::stringstream hexStream;
+        hexStream << std::hex << std::uppercase << std::setfill('0') << std::setw(2);
+        for (size_t i = 0; i < data.size(); ++i) {
+            hexStream << (int)(uint8_t)data[i];
+            if (i < data.size() - 1) hexStream << " ";
+        }
+        log("DATA", "Packet_HEX: " + hexStream.str());
 
-    std::stringstream hexStream;
-    hexStream << std::hex << std::uppercase << std::setfill('0') << std::setw(2);
-    for (size_t i = 0; i < data.size(); ++i) {
-        hexStream << (int)(uint8_t)data[i];
-        if (i < data.size() - 1) hexStream << " ";
-    }
-    log("DATA", "Packet_HEX: " + hexStream.str());
+        log("DATA", "PacketID: " + std::to_string((int)parsed.at("PacketID")));
 
-    log("DATA", "PacketID: " + std::to_string((int)parsed.at("PacketID")));
+        uint32_t buttons = (uint32_t)parsed.at("Buttons");
+        std::stringstream buttonHex;
+        buttonHex << std::hex << std::uppercase << std::setfill('0') << std::setw(8) << buttons;
+        log("DATA", "Buttons: 0x" + buttonHex.str());
 
-    uint32_t buttons = (uint32_t)parsed.at("Buttons");
-    std::stringstream buttonHex;
-    buttonHex << std::hex << std::uppercase << std::setfill('0') << std::setw(8) << buttons;
-    log("DATA", "Buttons: 0x" + buttonHex.str());
+        auto buttonNames = [Joycon2BLEViewer parseButtons:buttons];
+        std::string pressed = buttonNames.empty() ? "None" : "";
+        for (size_t i = 0; i < buttonNames.size(); ++i) {
+            pressed += buttonNames[i];
+            if (i < buttonNames.size() - 1) pressed += ", ";
+        }
+        log("DATA", "Pressed: " + pressed);
 
-    auto buttonNames = [Joycon2BLEViewer parseButtons:buttons];
-    std::string pressed = buttonNames.empty() ? "None" : "";
-    for (size_t i = 0; i < buttonNames.size(); ++i) {
-        pressed += buttonNames[i];
-        if (i < buttonNames.size() - 1) pressed += ", ";
-    }
-    log("DATA", "Pressed: " + pressed);
+        log("DATA", "Analog_Triggers: L=" + std::to_string((int)parsed.at("TriggerL")) + ", R=" + std::to_string((int)parsed.at("TriggerR")));
 
-    log("DATA", "Analog_Triggers: L=" + std::to_string((int)parsed.at("TriggerL")) + ", R=" + std::to_string((int)parsed.at("TriggerR")));
+        log("DATA", "LeftStick: X=" + std::to_string((int)parsed.at("LeftStickX")) + ", Y=" + std::to_string((int)parsed.at("LeftStickY")));
+        log("DATA", "RightStick: X=" + std::to_string((int)parsed.at("RightStickX")) + ", Y=" + std::to_string((int)parsed.at("RightStickY")));
 
-    log("DATA", "LeftStick: X=" + std::to_string((int)parsed.at("LeftStickX")) + ", Y=" + std::to_string((int)parsed.at("LeftStickY")));
-    log("DATA", "RightStick: X=" + std::to_string((int)parsed.at("RightStickX")) + ", Y=" + std::to_string((int)parsed.at("RightStickY")));
+        log("DATA", "Accel: X=" + std::to_string((int)parsed.at("AccelX")) + ", Y=" + std::to_string((int)parsed.at("AccelY")) + ", Z=" + std::to_string((int)parsed.at("AccelZ")));
+        log("DATA", "Gyro: X=" + std::to_string((int)parsed.at("GyroX")) + ", Y=" + std::to_string((int)parsed.at("GyroY")) + ", Z=" + std::to_string((int)parsed.at("GyroZ")));
+        log("DATA", "Mag: X=" + std::to_string((int)parsed.at("MagX")) + ", Y=" + std::to_string((int)parsed.at("MagY")) + ", Z=" + std::to_string((int)parsed.at("MagZ")));
 
-    log("DATA", "Accel: X=" + std::to_string((int)parsed.at("AccelX")) + ", Y=" + std::to_string((int)parsed.at("AccelY")) + ", Z=" + std::to_string((int)parsed.at("AccelZ")));
-    log("DATA", "Gyro: X=" + std::to_string((int)parsed.at("GyroX")) + ", Y=" + std::to_string((int)parsed.at("GyroY")) + ", Z=" + std::to_string((int)parsed.at("GyroZ")));
-    log("DATA", "Mag: X=" + std::to_string((int)parsed.at("MagX")) + ", Y=" + std::to_string((int)parsed.at("MagY")) + ", Z=" + std::to_string((int)parsed.at("MagZ")));
+        int16_t currentMouseX = (int16_t)parsed.at("MouseX");
+        int16_t currentMouseY = (int16_t)parsed.at("MouseY");
+        int16_t deltaX = currentMouseX - lastMouseX;
+        int16_t deltaY = currentMouseY - lastMouseY;
+        log("DATA", "Mouse: X=" + std::to_string(currentMouseX) + ", Y=" + std::to_string(currentMouseY) + ", DeltaX=" + std::to_string(deltaX) + ", DeltaY=" + std::to_string(deltaY));
 
-    int16_t currentMouseX = (int16_t)parsed.at("MouseX");
-    int16_t currentMouseY = (int16_t)parsed.at("MouseY");
-    int16_t deltaX = currentMouseX - lastMouseX;
-    int16_t deltaY = currentMouseY - lastMouseY;
-    log("DATA", "Mouse: X=" + std::to_string(currentMouseX) + ", Y=" + std::to_string(currentMouseY) + ", DeltaX=" + std::to_string(deltaX) + ", DeltaY=" + std::to_string(deltaY));
+        lastMouseX = currentMouseX;
+        lastMouseY = currentMouseY;
 
-    lastMouseX = currentMouseX;
-    lastMouseY = currentMouseY;
+        std::stringstream battery;
+        battery << std::fixed << std::setprecision(2) << parsed.at("BatteryVoltage") << "V, " << parsed.at("BatteryCurrent") << "mA";
+        log("DATA", "Battery: " + battery.str());
 
-    std::stringstream battery;
-    battery << std::fixed << std::setprecision(2) << parsed.at("BatteryVoltage") << "V, " << parsed.at("BatteryCurrent") << "mA";
-    log("DATA", "Battery: " + battery.str());
+        std::stringstream temp;
+        temp << std::fixed << std::setprecision(1) << parsed.at("Temperature") << "°C";
+        log("DATA", "Temperature: " + temp.str());
 
-    std::stringstream temp;
-    temp << std::fixed << std::setprecision(1) << parsed.at("Temperature") << "°C";
-    log("DATA", "Temperature: " + temp.str());
+        std::cout << std::flush;
+    #else
+        // Releaseモード: 画面をクリアして更新表示
+        std::cout << "\033[2J\033[1;1H"; // 画面クリアとカーソル移動
 
-    std::cout << std::flush;
+        std::cout << "=================================================" << std::endl;
+        std::cout << "Joycon2 Data:" << std::endl;
+        std::cout << "=================================================" << std::endl;
 
+        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - connectionStartTime).count();
+        std::cout << "Elapsed: " << elapsed << " ms" << std::endl;
+
+        std::stringstream hexStream;
+        hexStream << std::hex << std::uppercase << std::setfill('0') << std::setw(2);
+        for (size_t i = 0; i < data.size(); ++i) {
+            hexStream << (int)(uint8_t)data[i];
+            if (i < data.size() - 1) hexStream << " ";
+        }
+        std::cout << "Packet_HEX: " << hexStream.str() << std::endl;
+
+        std::cout << "PacketID: " << (int)parsed.at("PacketID") << std::endl;
+
+        uint32_t buttons = (uint32_t)parsed.at("Buttons");
+        std::stringstream buttonHex;
+        buttonHex << std::hex << std::uppercase << std::setfill('0') << std::setw(8) << buttons;
+        std::cout << "Buttons: " << buttonHex.str() << std::endl;
+
+        auto buttonNames = [Joycon2BLEViewer parseButtons:buttons];
+        std::string pressed = buttonNames.empty() ? "None" : "";
+        for (size_t i = 0; i < buttonNames.size(); ++i) {
+            pressed += buttonNames[i];
+            if (i < buttonNames.size() - 1) pressed += ", ";
+        }
+        std::cout << "Pressed: " << pressed << std::endl;
+
+        std::cout << "Analog_Triggers: L=" << (int)parsed.at("TriggerL") << ", R=" << (int)parsed.at("TriggerR") << std::endl;
+
+        std::cout << "LeftStick: X=" << (int)parsed.at("LeftStickX") << ", Y=" << (int)parsed.at("LeftStickY") << std::endl;
+        std::cout << "RightStick: X=" << (int)parsed.at("RightStickX") << ", Y=" << (int)parsed.at("RightStickY") << std::endl;
+
+        std::cout << "Accel: X=" << (int)parsed.at("AccelX") << ", Y=" << (int)parsed.at("AccelY") << ", Z=" << (int)parsed.at("AccelZ") << std::endl;
+        std::cout << "Gyro: X=" << (int)parsed.at("GyroX") << ", Y=" << (int)parsed.at("GyroY") << ", Z=" << (int)parsed.at("GyroZ") << std::endl;
+        std::cout << "Mag: X=" << (int)parsed.at("MagX") << ", Y=" << (int)parsed.at("MagY") << ", Z=" << (int)parsed.at("MagZ") << std::endl;
+
+        int16_t currentMouseX = (int16_t)parsed.at("MouseX");
+        int16_t currentMouseY = (int16_t)parsed.at("MouseY");
+        int16_t deltaX = currentMouseX - lastMouseX;
+        int16_t deltaY = currentMouseY - lastMouseY;
+        std::cout << "Mouse: X=" << currentMouseX << ", Y=" << currentMouseY << ", DeltaX=" << deltaX << ", DeltaY=" << deltaY << std::endl;
+
+        lastMouseX = currentMouseX;
+        lastMouseY = currentMouseY;
+
+        std::stringstream battery;
+        battery << std::fixed << std::setprecision(2) << parsed.at("BatteryVoltage") << "V, " << parsed.at("BatteryCurrent") << "mA";
+        std::cout << "Battery: " << battery.str() << std::endl;
+
+        std::stringstream temp;
+        temp << std::fixed << std::setprecision(1) << parsed.at("Temperature") << "°C";
+        std::cout << "Temperature: " << temp.str() << std::endl;
+
+        std::cout << std::flush;
+    #endif
 }
 
 - (void)startDataTimeoutTimer {
