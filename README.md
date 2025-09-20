@@ -5,13 +5,13 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 ## Features
 
 - **Real-time Data Display**: Shows live data from Joy-Con controllers including:
-  - Button states (A, B, X, Y, L, R, ZL, ZR, etc.)
+  - Button states (A, B, X, Y, →, ↓, ↑, ←, L, R, ZL, ZR, LS, RS, SL(L), SR(L), SL(R), SR(R), SELECT(-), START(+), CAMERA, HOME, CHAT)
+  - Trigger positions (Can be detected with the NGC controller)
   - Analog stick positions (Left/Right stick X/Y values)
   - Motion sensors (Accelerometer, Gyroscope)
   - IR camera data (Mouse tracking)
   - Battery voltage and current
   - Temperature sensor
-  - Trigger positions
 
 - **Clean Output**: Displays parsed data in a readable format with Python-compatible structure
 - **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
@@ -22,7 +22,7 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 - **macOS 10.15 or later**
 - **Xcode Command Line Tools** (for compilation)
 - **CMake 3.10 or later**
-- **Nintendo Joy-Con 2 controller** (L or R)
+- **Nintendo Switch2 controller** (L or R)
 
 ## Building
 
