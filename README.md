@@ -2,8 +2,6 @@
 
 A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetooth Low Energy (BLE) and displays real-time sensor data.
 
-**Disclaimer:** Nintendo Joy-Con is a registered trademark of Nintendo Co., Ltd. This project is not affiliated with, endorsed by, or sponsored by Nintendo in any way.
-
 ## Features
 
 - **Real-time Data Display**: Shows live data from Joy-Con controllers including:
@@ -237,3 +235,7 @@ SOFTWARE.
 ## Contributing
 
 Feel free to submit issues or pull requests for improvements.
+
+##Notes
+
+**Disclaimer:** Nintendo Joy-Con is a registered trademark of Nintendo Co., Ltd. This project is not affiliated with, endorsed by, or sponsored by Nintendo in any way.
