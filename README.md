@@ -1,6 +1,8 @@
-# Joycon2 BLE Viewer (macOS)
+# Joycon2 for Mac
 
-A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetooth Low Energy (BLE) and displays real-time sensor data.
+A project to connect to a Nintendo Switch 2 controller via Bluetooth Low Energy (BLE) and enable the use of received data on macOS.
+
+Bluetooth Low Energy（BLE）経由でNintendo Switch2コントローラーに接続し、受信データをMacOS上で使用できるようにするプロジェクトです。
 
 ## Features
 
