@@ -8,7 +8,7 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
   - Button states (A, B, X, Y, →, ↓, ↑, ←, L, R, ZL, ZR, LS, RS, SL(L), SR(L), SL(R), SR(R), SELECT(-), START(+), CAMERA, HOME, CHAT)
   - Trigger positions (Can be detected with the NGC controller)
   - Analog stick positions (Left/Right stick X/Y values)
-  - Motion sensors (Accelerometer, Gyroscope)
+  - Motion sensors (Accelerometer, Gyroscope, Magnetometer)
   - IR camera data (Mouse tracking)
   - Battery voltage and current
   - Temperature sensor
