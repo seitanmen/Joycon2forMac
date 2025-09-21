@@ -215,7 +215,9 @@ The application includes a comprehensive logging system with timestamps and log 
 This project is based on the work from
 
 [yujimny/Joycon2test](https://github.com/yujimny/Joycon2test)
+
 [TheFrano/joycon2cpp](https://github.com/TheFrano/joycon2cpp)
+
 [Tamagosushio/joycon2cpp](https://github.com/Tamagosushio/joycon2cpp)
 
 We thank the authors for their contributions to the Joy-Con BLE communication implementation.
