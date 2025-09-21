@@ -4,6 +4,8 @@ A project to connect to a Nintendo Switch 2 controller via Bluetooth Low Energy 
 
 Bluetooth Low Energy（BLE）経由でNintendo Switch2コントローラーに接続し、受信データをMacOS上で使用できるようにするプロジェクトです。
 
+Due to significant code revisions currently underway, specifications are subject to change.
+
 ## Features
 
 - **Real-time Data Display**: Shows live data from Joy-Con controllers including:
