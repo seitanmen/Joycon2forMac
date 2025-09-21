@@ -15,14 +15,18 @@ Bluetooth Low Energy（BLE）経由でNintendo Switch2コントローラーに�
   - Battery voltage and current
   - Temperature sensor
 
+- **HID Emulation**: Emulates mouse and gamepad inputs based on Joy-Con data
+  - Mouse mode: Controls cursor movement, clicks, and scrolling
+  - Gamepad mode: Reserved for future gamepad emulation
+  - Runtime mode switching with keyboard shortcuts (Shift+M for mouse, Shift+G for gamepad)
+
 - **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
 
 ## Requirements
 
 - **macOS 10.15 or later**
 - **Xcode Command Line Tools** (for compilation)
-- **CMake 3.10 or later**
-- **Nintendo Switch2 controller** (L or R)
+- **Nintendo Switch 2 controller** (L or R)
 
 ## Building
 
@@ -92,13 +96,13 @@ Temperature: 25.1°C
 
 ## Data Fields
 
-- **Packet_HEX**: The data obtained by subscribing to AB7DE9BE-89FE-49AD-828F-118F09DF7FD2.
+- **Packet_HEX**: Raw data packet received from the BLE characteristic AB7DE9BE-89FE-49AD-828F-118F09DF7FD2 (63 bytes)
 - **PacketID**: Sequential packet identifier
 - **Buttons**: Raw button state (hex format)
 - **Pressed**: List of currently pressed buttons
 - **Analog_Triggers**: Analog trigger positions (L/R)
-- **LeftStick/RightStick**: Analog stick positions
-- **Mouse**: IR camera tracking data
+- **LeftStick/RightStick**: Analog stick positions (0-4095 range)
+- **Mouse**: IR camera tracking data (X, Y, DeltaX, DeltaY)
 - **Accel**: Accelerometer readings (X, Y, Z axes)
 - **Gyro**: Gyroscope readings (X, Y, Z axes)
 - **Mag**: Magnetometer readings (X, Y, Z axes)
@@ -178,7 +182,8 @@ When a Joy-Con is connected, the application follows this sequence:
 4. **Initialization Commands**: Sends two specific commands to enable data streaming:
    - Command 1: `0c91010200040000FF000000` (enables standard data)
    - Command 2: `0c91010400040000FF000000` (enables extended data)
-5. **Data Reception**: Begins receiving and parsing 63-byte data packets
+5. **Notification Setup**: Enables notifications for real-time data reception
+6. **Data Reception**: Begins receiving and parsing 63-byte data packets
 
 ### Connection Management
 
@@ -200,19 +205,17 @@ The application includes a comprehensive logging system with timestamps and log 
 
 #### English
 - **include/Joycon2BLEReceiver.h**: Header file for the Joycon2BLEReceiver class. Defines interfaces for BLE communication with Joy-Con devices, including properties, delegate methods, and utility functions.
-- **include/Joycon2VirtualHID.h**: Header file for the Joycon2VirtualHID class. Defines interfaces for emulating virtual HID devices, handling mouse and gamepad inputs.
+- **include/Joycon2VirtualHID.h**: Header file for the Joycon2VirtualHID class. Defines interfaces for emulating virtual HID devices, handling mouse and gamepad inputs with runtime mode switching.
 - **src/Joycon2BLEReceiver.mm**: Implementation of the Joycon2BLEReceiver class. Handles BLE scanning, connection, data reception, parsing, logging, and sending initialization commands.
-- **src/Joycon2VirtualHID.mm**: Implementation of the Joycon2VirtualHID class. Converts Joy-Con data to HID reports and simulates mouse movements, clicks, and scrolling using CGEvent.
-- **src/main_ble.mm**: Main function for BLE receiver mode. Initializes Joycon2BLEReceiver and starts scanning.
-- **src/main_hid.mm**: Main function for HID emulation mode. Initializes Joycon2VirtualHID and starts emulation.
+- **src/Joycon2VirtualHID.mm**: Implementation of the Joycon2VirtualHID class. Converts Joy-Con data to HID reports and simulates mouse movements, clicks, and scrolling using CGEvent. Supports mode switching via keyboard shortcuts.
+- **src/main_ble.mm**: Main function for BLE receiver mode. Initializes Joycon2BLEReceiver and Joycon2VirtualHID, starts scanning, and supports command-line options for emulation modes.
 
 #### 日本語
 - **include/Joycon2BLEReceiver.h**: Joycon2BLEReceiverクラスのヘッダーファイル。Joy-ConデバイスとのBLE通信のためのインターフェースを定義。プロパティ、デリゲートメソッド、ユーティリティ関数を含む。
-- **include/Joycon2VirtualHID.h**: Joycon2VirtualHIDクラスのヘッダーファイル。仮想HIDデバイスをエミュレートするためのインターフェースを定義。マウスやゲームパッドの入力を扱う。
+- **include/Joycon2VirtualHID.h**: Joycon2VirtualHIDクラスのヘッダーファイル。仮想HIDデバイスをエミュレートするためのインターフェースを定義。マウスやゲームパッドの入力を扱い、ランタイムモード切り替えをサポート。
 - **src/Joycon2BLEReceiver.mm**: Joycon2BLEReceiverクラスの実装。BLEスキャン、接続、データ受信、パース、ログ出力、初期化コマンド送信を行う。
-- **src/Joycon2VirtualHID.mm**: Joycon2VirtualHIDクラスの実装。Joy-ConデータをHIDレポートに変換し、CGEventでマウス移動、クリック、スクロールをシミュレート。
-- **src/main_ble.mm**: BLE受信モードのメイン関数。Joycon2BLEReceiverを初期化し、スキャンを開始。
-- **src/main_hid.mm**: HIDエミュレーションモードのメイン関数。Joycon2VirtualHIDを初期化し、エミュレーションを開始。
+- **src/Joycon2VirtualHID.mm**: Joycon2VirtualHIDクラスの実装。Joy-ConデータをHIDレポートに変換し、CGEventでマウス移動、クリック、スクロールをシミュレート。キーボードショートカットによるモード切り替えをサポート。
+- **src/main_ble.mm**: BLE受信モードのメイン関数。Joycon2BLEReceiverとJoycon2VirtualHIDを初期化し、スキャンを開始。エミュレーションモードのコマンドラインオプションをサポート。
 
 ## Acknowledgments
 
