@@ -88,17 +88,18 @@ Temperature: 25.1°C
 
 ## Data Fields
 
+- **Packet_HEX**: The data obtained by subscribing to AB7DE9BE-89FE-49AD-828F-118F09DF7FD2.
 - **PacketID**: Sequential packet identifier
 - **Buttons**: Raw button state (hex format)
 - **Pressed**: List of currently pressed buttons
-- **LeftStick/RightStick**: Analog stick positions (0-4095 range)
+- **Analog_Triggers**: Analog trigger positions (L/R)
+- **LeftStick/RightStick**: Analog stick positions
 - **Mouse**: IR camera tracking data
-- **Mag**: Magnetometer readings
-- **Battery**: Voltage (V) and current (mA)
-- **Temperature**: Controller temperature in Celsius
 - **Accel**: Accelerometer readings (X, Y, Z axes)
 - **Gyro**: Gyroscope readings (X, Y, Z axes)
-- **Triggers**: Analog trigger positions (L/R)
+- **Mag**: Magnetometer readings (X, Y, Z axes)
+- **Battery**: Voltage (V) and current (mA)
+- **Temperature**: Controller temperature in Celsius
 
 ## Troubleshooting
 
