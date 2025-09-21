@@ -54,15 +54,17 @@ Bluetooth Low Energy（BLE）経由でNintendo Switch2コントローラーに�
 2. **Put your Switch2 Controller into pairing mode** (press and hold the SYNC button)
 3. **Run the application**:
    ```bash
-   ./build/Joycon2VirtualHID  # For full mode (BLE + HID emulation)
-   # or
+   ./build/Joycon2VirtualHID  # For full mode (BLE + HID emulation, both mouse and gamepad)
+   ./build/Joycon2HID --mouse  # For mouse-only HID emulation
+   ./build/Joycon2HID --gamepad  # For gamepad-only HID emulation (not implemented yet)
    ./build/Joycon2BLEReceiver  # For BLE-only mode (data display only)
    ```
 4. **The app will**:
    - Scan for Switch2 Controller devices
    - Automatically connect when found
    - Display real-time sensor data (BLE_ONLY mode)
-   - Emulate HID inputs (FULL mode)
+   - Emulate HID inputs based on the selected mode (HID modes)
+   - Allow runtime mode switching with Shift+M (mouse) or Shift+G (gamepad) in HID modes
 
 ## Output Format
 
