@@ -5,13 +5,13 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 ## Features
 
 - **Real-time Data Display**: Shows live data from Joy-Con controllers including:
-  - Button states (A, B, X, Y, L, R, ZL, ZR, etc.)
+  - Button states (A, B, X, Y, →, ↓, ↑, ←, L, R, ZL, ZR, LS, RS, SL(L), SR(L), SL(R), SR(R), SELECT(-), START(+), CAMERA, HOME, CHAT)
+  - Trigger positions (Can be detected with the NGC controller)
   - Analog stick positions (Left/Right stick X/Y values)
   - Motion sensors (Accelerometer, Gyroscope)
   - IR camera data (Mouse tracking)
   - Battery voltage and current
   - Temperature sensor
-  - Trigger positions
 
 - **Clean Output**: Displays parsed data in a readable format with Python-compatible structure
 - **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
@@ -22,7 +22,7 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 - **macOS 10.15 or later**
 - **Xcode Command Line Tools** (for compilation)
 - **CMake 3.10 or later**
-- **Nintendo Joy-Con 2 controller** (L or R)
+- **Nintendo Switch2 controller** (L or R)
 
 ## Building
 
@@ -153,23 +153,6 @@ The application includes several utility functions for parsing binary data from 
 - `parseButtons(buttons)`: Converts button bitmask to human-readable button names
 - `toInt16/toUint16/toUint24/toUint32`: Byte array to numeric value conversion functions
 
-### Data Fields Parsed
-
-The application parses the following data fields from each 60-byte packet:
-
-| Field | Offset | Type | Description |
-|-------|--------|------|-------------|
-| PacketID | 0x00 | uint24 | Sequential packet identifier |
-| Buttons | 0x03 | uint32 | Button state bitmask |
-| LeftStick | 0x0A | uint16×2 | Left analog stick X/Y (0-4095) |
-| RightStick | 0x0D | uint16×2 | Right analog stick X/Y (0-4095) |
-| Mouse | 0x10 | int16×4 | IR camera tracking data |
-| Magnetometer | 0x18 | int16×3 | Magnetic field sensor X/Y/Z |
-| Battery | 0x1F/0x28 | uint16/int16 | Voltage (mV) and current (mA) |
-| Temperature | 0x2E | int16 | Controller temperature |
-| Accelerometer | 0x30 | int16×3 | Acceleration X/Y/Z |
-| Gyroscope | 0x36 | int16×3 | Angular velocity X/Y/Z |
-| Triggers | 0x3C | uint8×2 | Analog trigger positions L/R |
 
 ### Initialization Process
 
