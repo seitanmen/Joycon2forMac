@@ -13,7 +13,6 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
   - Battery voltage and current
   - Temperature sensor
 
-- **Clean Output**: Displays parsed data in a readable format with Python-compatible structure
 - **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
 - **Cross-platform Compatible**: Data format matches the Python implementation
 
