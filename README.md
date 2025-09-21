@@ -250,6 +250,6 @@ SOFTWARE.
 
 Feel free to submit issues or pull requests for improvements.
 
-##Notes
+## Notes
 
 **Disclaimer:** Nintendo Joy-Con is a registered trademark of Nintendo Co., Ltd. This project is not affiliated with, endorsed by, or sponsored by Nintendo in any way.
