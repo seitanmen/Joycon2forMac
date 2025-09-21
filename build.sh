@@ -24,8 +24,6 @@ fi
     if [ "$BUILD_MODE" = "FULL" ]; then
     echo "Building in FULL mode (Joycon2VirtualHID with BLE and HID emulation) in $BUILD_TYPE mode..."
     clang++ -x objective-c++ $DEBUG_FLAG -framework Foundation -framework IOKit -framework CoreBluetooth -framework ApplicationServices -Iinclude src/Joycon2VirtualHID.mm src/Joycon2BLEReceiver.mm src/main_ble.mm -o build/Joycon2VirtualHID
-    echo "Building HID_ENABLE executable..."
-    clang++ -x objective-c++ $DEBUG_FLAG -framework Foundation -framework IOKit -framework CoreBluetooth -framework ApplicationServices -Iinclude src/Joycon2VirtualHID.mm src/Joycon2BLEReceiver.mm src/main_hid.mm -o build/Joycon2HID
     elif [ "$BUILD_MODE" = "BLE_ONLY" ]; then
     echo "Building in BLE_ONLY mode (Joycon2BLEReceiver for BLE communication only) in $BUILD_TYPE mode..."
     clang++ -x objective-c++ $DEBUG_FLAG -DHID_ENABLE -framework Foundation -framework CoreBluetooth -Iinclude src/Joycon2BLEReceiver.mm src/main_ble.mm -o build/Joycon2BLEReceiver

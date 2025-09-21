@@ -55,8 +55,8 @@ Bluetooth Low Energy（BLE）経由でNintendo Switch2コントローラーに�
 3. **Run the application**:
    ```bash
    ./build/Joycon2VirtualHID  # For full mode (BLE + HID emulation, both mouse and gamepad)
-   ./build/Joycon2HID --mouse  # For mouse-only HID emulation
-   ./build/Joycon2HID --gamepad  # For gamepad-only HID emulation (not implemented yet)
+   ./build/Joycon2VirtualHID --mouse  # For mouse-only HID emulation
+   ./build/Joycon2VirtualHID --gamepad  # For gamepad-only HID emulation (not implemented yet)
    ./build/Joycon2BLEReceiver  # For BLE-only mode (data display only)
    ```
 4. **The app will**:

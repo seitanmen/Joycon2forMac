@@ -222,7 +222,8 @@ CGEventRef eventTapCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef 
 
 #ifndef HID_ENABLE
 - (void)sendHIDReportFromJoyconData:(NSDictionary *)joyconData {
-    NSLog(@"Sending HID report from Joy-Con data in mode: %ld", (long)self.emulationMode);
+    NSString *deviceName = joyconClient.connectedPeripheral.name ?: @"Unknown Device";
+    NSLog(@"Sending HID report from %@ data in mode: %ld", deviceName, (long)self.emulationMode);
 
     if (self.emulationMode == MODE_GAMEPAD || self.emulationMode == MODE_BOTH) {
         // Send Game Controller HID report (placeholder for future implementation)
@@ -389,11 +390,7 @@ CGEventRef eventTapCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef 
 
 - (void)handleMouseMovement:(int16_t)deltaX deltaY:(int16_t)deltaY {
     if (deltaX != 0 || deltaY != 0) {
-        // 急激な差分を検知してログ
-        const int threshold = 1000;
-        if (abs(deltaX) > threshold || abs(deltaY) > threshold) {
-            NSLog(@"Large delta detected: deltaX=%d, deltaY=%d", deltaX, deltaY);
-        }
+        NSLog(@"Delta detected: deltaX=%d, deltaY=%d", deltaX, deltaY);
 
         // 現在のマウス座標を取得
         CGEventSourceRef eventSource = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);

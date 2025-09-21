@@ -857,7 +857,9 @@ std::string getTimestamp() {
 }
 
 void log(const std::string& level, const std::string& message) {
+#ifdef DEBUG
     std::cout << "[" << getTimestamp() << "] [" << level << "] " << message << std::endl;
+#endif
 }
 
 @end
