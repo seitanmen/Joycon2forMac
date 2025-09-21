@@ -1,4 +1,4 @@
-#import "../include/Joycon2BLEViewer.h"
+#import "../include/Joycon2BLEReceiver.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Foundation/Foundation.h>
 #include <vector>
@@ -22,7 +22,7 @@ int dataReceiveCounter = 0;
 // 接続開始時刻を記録（ミリ秒単位）
 std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
 
-@implementation Joycon2BLEViewer
+@implementation Joycon2BLEReceiver
 
 - (instancetype)init {
     self = [super init];
@@ -184,7 +184,7 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
     self.connectedPeripheral.delegate = self;
 
     // デバイスの種類を判定して保存
-    self.deviceType = [Joycon2BLEViewer determineDeviceType:peripheral];
+    self.deviceType = [Joycon2BLEReceiver determineDeviceType:peripheral];
     std::cout << "🎮 Device type detected: " << [self.deviceType UTF8String] << std::endl;
 
     // データ受信タイムアウトタイマーを開始（30秒）
@@ -363,7 +363,7 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
                     return;
                 }
 
-                auto parsedData = [Joycon2BLEViewer parseJoycon2Data:dataVector];
+                auto parsedData = [Joycon2BLEReceiver parseJoycon2Data:dataVector];
 
                 // パケットIDが70付近になったらログを追加
                 int packetId = (int)parsedData.at("PacketID");
@@ -374,7 +374,7 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
 
 
                 // 詳細表示
-                [Joycon2BLEViewer printParsedData:parsedData data:dataVector];
+                [Joycon2BLEReceiver printParsedData:parsedData data:dataVector];
 
                 if (self.onDataReceived) {
                     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
@@ -486,9 +486,9 @@ std::chrono::time_point<std::chrono::system_clock> connectionStartTime;
 
 
 // Singleton instance
-static Joycon2BLEViewer* sharedInstance = nil;
+static Joycon2BLEReceiver* sharedInstance = nil;
 
-+ (Joycon2BLEViewer*)sharedInstance {
++ (Joycon2BLEReceiver*)sharedInstance {
     return sharedInstance;
 }
 
@@ -576,40 +576,40 @@ static Joycon2BLEViewer* sharedInstance = nil;
         return parsed; // 空のマップを返す
     }
 
-    parsed["PacketID"] = (float) [Joycon2BLEViewer toUint24:data offset:0];
-    parsed["Buttons"] = (float) [Joycon2BLEViewer toUint32:data offset:3];
+    parsed["PacketID"] = (float) [Joycon2BLEReceiver toUint24:data offset:0];
+    parsed["Buttons"] = (float) [Joycon2BLEReceiver toUint32:data offset:3];
 
     parsed["TriggerL"] = (float) data[0x3C];
     parsed["TriggerR"] = (float) data[0x3D];
 
-    auto leftStick = [Joycon2BLEViewer parseStick:data offset:0x0A];
+    auto leftStick = [Joycon2BLEReceiver parseStick:data offset:0x0A];
     parsed["LeftStickX"] = (float) leftStick.first;
     parsed["LeftStickY"] = (float) leftStick.second;
-    auto rightStick = [Joycon2BLEViewer parseStick:data offset:0x0D];
+    auto rightStick = [Joycon2BLEReceiver parseStick:data offset:0x0D];
     parsed["RightStickX"] = (float) rightStick.first;
     parsed["RightStickY"] = (float) rightStick.second;
 
-    parsed["AccelX"] = (float) [Joycon2BLEViewer toInt16:data offset:0x30];
-    parsed["AccelY"] = (float) [Joycon2BLEViewer toInt16:data offset:0x32];
-    parsed["AccelZ"] = (float) [Joycon2BLEViewer toInt16:data offset:0x34];
+    parsed["AccelX"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x30];
+    parsed["AccelY"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x32];
+    parsed["AccelZ"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x34];
 
-    parsed["GyroX"] = (float) [Joycon2BLEViewer toInt16:data offset:0x36];
-    parsed["GyroY"] = (float) [Joycon2BLEViewer toInt16:data offset:0x38];
-    parsed["GyroZ"] = (float) [Joycon2BLEViewer toInt16:data offset:0x3A];
+    parsed["GyroX"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x36];
+    parsed["GyroY"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x38];
+    parsed["GyroZ"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x3A];
 
-    parsed["MagX"] = (float) [Joycon2BLEViewer toInt16:data offset:0x18];
-    parsed["MagY"] = (float) [Joycon2BLEViewer toInt16:data offset:0x1A];
-    parsed["MagZ"] = (float) [Joycon2BLEViewer toInt16:data offset:0x1C];
+    parsed["MagX"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x18];
+    parsed["MagY"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x1A];
+    parsed["MagZ"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x1C];
 
-    parsed["MouseX"] = (float) [Joycon2BLEViewer toInt16:data offset:0x10];
-    parsed["MouseY"] = (float) [Joycon2BLEViewer toInt16:data offset:0x12];
-    parsed["MouseUnk"] = (float) [Joycon2BLEViewer toInt16:data offset:0x14];
-    parsed["MouseDistance"] = (float) [Joycon2BLEViewer toInt16:data offset:0x16];
+    parsed["MouseX"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x10];
+    parsed["MouseY"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x12];
+    parsed["MouseUnk"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x14];
+    parsed["MouseDistance"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x16];
 
-    parsed["BatteryVoltageRaw"] = (float) [Joycon2BLEViewer toUint16:data offset:0x1F];
-    parsed["BatteryCurrentRaw"] = (float) [Joycon2BLEViewer toInt16:data offset:0x28];
+    parsed["BatteryVoltageRaw"] = (float) [Joycon2BLEReceiver toUint16:data offset:0x1F];
+    parsed["BatteryCurrentRaw"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x28];
 
-    parsed["TemperatureRaw"] = (float) [Joycon2BLEViewer toInt16:data offset:0x2E];
+    parsed["TemperatureRaw"] = (float) [Joycon2BLEReceiver toInt16:data offset:0x2E];
 
     // 計算値の追加
     parsed["BatteryVoltage"] = parsed["BatteryVoltageRaw"] / 1000.0f;
@@ -652,7 +652,7 @@ static int dataCounter = 0;
     auto currentMs = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime.time_since_epoch()).count();
 
     // 表示間隔チェック
-    Joycon2BLEViewer* client = [Joycon2BLEViewer sharedInstance];
+    Joycon2BLEReceiver* client = [Joycon2BLEReceiver sharedInstance];
     if (client.displayInterval > 1 && (dataCounter % client.displayInterval) != 0) {
         return; // 表示しない
     }
@@ -677,7 +677,7 @@ static int dataCounter = 0;
         buttonHex << std::hex << std::uppercase << std::setfill('0') << std::setw(8) << buttons;
         log("DATA", "Buttons: 0x" + buttonHex.str());
 
-        auto buttonNames = [Joycon2BLEViewer parseButtons:buttons];
+        auto buttonNames = [Joycon2BLEReceiver parseButtons:buttons];
         std::string pressed = buttonNames.empty() ? "None" : "";
         for (size_t i = 0; i < buttonNames.size(); ++i) {
             pressed += buttonNames[i];
@@ -717,7 +717,11 @@ static int dataCounter = 0;
         std::cout << "\033[2J\033[1;1H"; // 画面クリアとカーソル移動
 
         std::cout << "=================================================" << std::endl;
-        std::cout << "Joycon2 Data:" << std::endl;
+        //デバイス名を取得して表示
+        Joycon2BLEReceiver* viewer = [Joycon2BLEReceiver sharedInstance];
+        NSString* deviceName = viewer.connectedPeripheral.name;
+        std::string nameStr = deviceName ? [deviceName UTF8String] : "Unknown Device";
+        std::cout << nameStr << " Data:" << std::endl;
         std::cout << "=================================================" << std::endl;
 
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - connectionStartTime).count();
@@ -738,7 +742,7 @@ static int dataCounter = 0;
         buttonHex << std::hex << std::uppercase << std::setfill('0') << std::setw(8) << buttons;
         std::cout << "Buttons: " << buttonHex.str() << std::endl;
 
-        auto buttonNames = [Joycon2BLEViewer parseButtons:buttons];
+        auto buttonNames = [Joycon2BLEReceiver parseButtons:buttons];
         std::string pressed = buttonNames.empty() ? "None" : "";
         for (size_t i = 0; i < buttonNames.size(); ++i) {
             pressed += buttonNames[i];

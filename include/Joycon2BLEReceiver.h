@@ -12,7 +12,7 @@
 #include <sstream>
 #include <iostream>
 
-@interface Joycon2BLEViewer : NSObject<CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface Joycon2BLEReceiver : NSObject<CBCentralManagerDelegate, CBPeripheralDelegate>
 
 @property (strong, nonatomic) CBCentralManager* centralManager;
 @property (strong, nonatomic) CBPeripheral* connectedPeripheral;
@@ -55,7 +55,7 @@ void log(const std::string& level, const std::string& message);
  @property (copy, nonatomic) void (^onError)(NSString* error);
 
   // Utility methods
-   + (Joycon2BLEViewer*)sharedInstance;
+   + (Joycon2BLEReceiver*)sharedInstance;
    + (NSString*)determineDeviceType:(CBPeripheral*)peripheral;
    + (int16_t)toInt16:(const std::vector<uint8_t>&)data offset:(size_t)offset;
   + (uint16_t)toUint16:(const std::vector<uint8_t>&)data offset:(size_t)offset;

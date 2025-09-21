@@ -50,7 +50,7 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 2. **Put your Joy-Con into pairing mode** (press and hold the SYNC button)
 3. **Run the application**:
    ```bash
-   ./Joycon2BLEViewerApp
+   ./Joycon2BLEReceiverApp
    ```
 4. **The app will**:
    - Scan for Joy-Con devices
@@ -122,7 +122,7 @@ This application is built using Objective-C++ and leverages macOS's Core Bluetoo
 
 ### Main Classes
 
-#### `Joycon2BLEViewer` (Joycon2BLEViewer.h / Joycon2BLEViewer.mm)
+#### `Joycon2BLEReceiver` (Joycon2BLEReceiver.h / Joycon2BLEReceiver.mm)
 The core class that handles all BLE operations and data processing.
 
 **Key Properties:**

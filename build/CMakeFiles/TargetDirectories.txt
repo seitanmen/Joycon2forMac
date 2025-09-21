@@ -1,3 +1,0 @@
-/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles/Joycon2BLEViewerApp.dir
-/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles/edit_cache.dir
-/Users/seitan/Desktop/program/Joycon2forMac/build/CMakeFiles/rebuild_cache.dir

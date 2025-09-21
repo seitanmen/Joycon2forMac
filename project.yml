@@ -1,4 +1,4 @@
-name: Joycon2BLEViewer
+name: Joycon2BLEReceiver
 options:
   bundleIdPrefix: com.example
   deploymentTarget:
@@ -9,7 +9,7 @@ options:
   tabWidth: 4
 
 targets:
-  Joycon2BLEViewer:
+  Joycon2BLEReceiver:
     type: application
     platform: macOS
     sources:
@@ -21,7 +21,7 @@ targets:
         MACOSX_DEPLOYMENT_TARGET: 10.13
         CODE_SIGN_IDENTITY: ""
         CODE_SIGN_ENTITLEMENTS: ""
-        INFOPLIST_FILE: Joycon2BLEViewer-Info.plist
+        INFOPLIST_FILE: Joycon2forMac-Info.plist
     dependencies:
       - framework: CoreBluetooth.framework
       - framework: Foundation.framework
@@ -29,4 +29,4 @@ targets:
     prebuildScripts:
       - name: Swift Version Check
         script: |
-          echo "Building Joycon2BLEViewer for macOS"
+          echo "Building Joycon2BLEReceiver for macOS"
