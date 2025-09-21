@@ -55,7 +55,7 @@ Due to significant code revisions currently underway, specifications are subject
    - `Joycon2BLEReceiver` (BLE_ONLY mode)
 
 ## Running
-![Video](https://github.com/seitanmen/Joycon2forMac/issues/1#issue-3438387487)
+[Video](https://github.com/seitanmen/Joycon2forMac/issues/1#issue-3438387487)
 
 
 1. **Ensure Bluetooth is enabled** on your Mac
