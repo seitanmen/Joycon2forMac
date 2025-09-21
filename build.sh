@@ -26,7 +26,7 @@ fi
     clang++ -x objective-c++ $DEBUG_FLAG -framework Foundation -framework IOKit -framework CoreBluetooth -framework ApplicationServices -Iinclude src/Joycon2VirtualHID.mm src/Joycon2BLEReceiver.mm src/main_ble.mm -o build/Joycon2VirtualHID
     elif [ "$BUILD_MODE" = "BLE_ONLY" ]; then
     echo "Building in BLE_ONLY mode (Joycon2BLEReceiver for BLE communication only) in $BUILD_TYPE mode..."
-    clang++ -x objective-c++ $DEBUG_FLAG -framework Foundation -framework CoreBluetooth -Iinclude src/Joycon2BLEReceiver.mm src/main_ble.mm -o build/Joycon2BLEReceiver
+    clang++ -x objective-c++ $DEBUG_FLAG -DHID_ONLY -framework Foundation -framework CoreBluetooth -Iinclude src/Joycon2BLEReceiver.mm src/main_ble.mm -o build/Joycon2BLEReceiver
 else
     echo "Invalid BUILD_MODE: $BUILD_MODE. Use FULL or BLE_ONLY."
     exit 1

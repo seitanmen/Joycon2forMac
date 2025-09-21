@@ -29,20 +29,24 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 1. **Clone or download** this repository
 2. **Navigate to the project directory**:
    ```bash
-   cd Joycon2test
+   cd Joycon2forMac
    ```
-3. **Create build directory**:
+3. **Run the build script**:
    ```bash
-   mkdir build && cd build
+   ./build.sh [BUILD_MODE] [BUILD_TYPE]
    ```
-4. **Configure with CMake**:
+   - `BUILD_MODE`: `FULL` (default, includes BLE and HID emulation) or `BLE_ONLY` (BLE communication only)
+   - `BUILD_TYPE`: `debug` (default) or `release`
+
+   Examples:
    ```bash
-   cmake ..
+   ./build.sh FULL debug    # Build full version in debug mode
+   ./build.sh BLE_ONLY release  # Build BLE-only version in release mode
    ```
-5. **Build the project**:
-   ```bash
-   make
-   ```
+
+   The executables will be created in the `build/` directory:
+   - `Joycon2VirtualHID` (FULL mode)
+   - `Joycon2BLEReceiver` (BLE_ONLY mode)
 
 ## Running
 
@@ -50,12 +54,15 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 2. **Put your Joy-Con into pairing mode** (press and hold the SYNC button)
 3. **Run the application**:
    ```bash
-   ./Joycon2BLEReceiverApp
+   ./build/Joycon2VirtualHID  # For full mode (BLE + HID emulation)
+   # or
+   ./build/Joycon2BLEReceiver  # For BLE-only mode (data display only)
    ```
 4. **The app will**:
    - Scan for Joy-Con devices
    - Automatically connect when found
-   - Display real-time sensor data
+   - Display real-time sensor data (BLE_ONLY mode)
+   - Emulate HID inputs (FULL mode)
 
 ## Output Format
 
@@ -102,8 +109,8 @@ Triggers: L=0, R=0
 
 ### Build Issues
 - Install Xcode Command Line Tools: `xcode-select --install`
-- Ensure CMake is installed: `brew install cmake` (if using Homebrew)
-- Clean build: `rm -rf build && mkdir build && cd build && cmake .. && make`
+- Ensure clang++ is available (included with Xcode Command Line Tools)
+- Clean build: `rm -rf build && ./build.sh`
 
 ### Permission Issues
 - The app requires Bluetooth permissions (automatically granted)
@@ -114,7 +121,9 @@ Triggers: L=0, R=0
 This application is built using:
 - **Objective-C++**: For Core Bluetooth integration
 - **Core Bluetooth Framework**: macOS native BLE support
-- **CMake**: Cross-platform build system
+- **IOKit Framework**: For HID device emulation
+- **ApplicationServices Framework**: For mouse event simulation
+- **clang++**: Compiler for building the executables
 
 ## Code Architecture
 
@@ -190,6 +199,24 @@ The application includes a comprehensive logging system with timestamps and log 
 - `log(level, message)`: Main logging function
 - `getTimestamp()`: Generates formatted timestamps with milliseconds
 - Log levels: SECTION, INFO, SUCCESS, ERROR, DATA
+
+### Source Files Description
+
+#### English
+- **include/Joycon2BLEReceiver.h**: Header file for the Joycon2BLEReceiver class. Defines interfaces for BLE communication with Joy-Con devices, including properties, delegate methods, and utility functions.
+- **include/Joycon2VirtualHID.h**: Header file for the Joycon2VirtualHID class. Defines interfaces for emulating virtual HID devices, handling mouse and gamepad inputs.
+- **src/Joycon2BLEReceiver.mm**: Implementation of the Joycon2BLEReceiver class. Handles BLE scanning, connection, data reception, parsing, logging, and sending initialization commands.
+- **src/Joycon2VirtualHID.mm**: Implementation of the Joycon2VirtualHID class. Converts Joy-Con data to HID reports and simulates mouse movements, clicks, and scrolling using CGEvent.
+- **src/main_ble.mm**: Main function for BLE receiver mode. Initializes Joycon2BLEReceiver and Joycon2VirtualHID, starts scanning.
+- **src/main_hid.mm**: Main function for HID emulation mode. Initializes Joycon2VirtualHID and starts emulation.
+
+#### 日本語
+- **include/Joycon2BLEReceiver.h**: Joycon2BLEReceiverクラスのヘッダーファイル。Joy-ConデバイスとのBLE通信のためのインターフェースを定義。プロパティ、デリゲートメソッド、ユーティリティ関数を含む。
+- **include/Joycon2VirtualHID.h**: Joycon2VirtualHIDクラスのヘッダーファイル。仮想HIDデバイスをエミュレートするためのインターフェースを定義。マウスやゲームパッドの入力を扱う。
+- **src/Joycon2BLEReceiver.mm**: Joycon2BLEReceiverクラスの実装。BLEスキャン、接続、データ受信、パース、ログ出力、初期化コマンド送信を行う。
+- **src/Joycon2VirtualHID.mm**: Joycon2VirtualHIDクラスの実装。Joy-ConデータをHIDレポートに変換し、CGEventでマウス移動、クリック、スクロールをシミュレート。
+- **src/main_ble.mm**: BLE受信モードのメイン関数。Joycon2BLEReceiverとJoycon2VirtualHIDを初期化し、スキャンを開始。
+- **src/main_hid.mm**: HIDエミュレーションモードのメイン関数。Joycon2VirtualHIDを初期化し、エミュレーションを開始。
 
 ## License
 
