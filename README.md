@@ -174,8 +174,7 @@ When a Joy-Con is connected, the application follows this sequence:
 4. **Initialization Commands**: Sends two specific commands to enable data streaming:
    - Command 1: `0c91010200040000FF000000` (enables standard data)
    - Command 2: `0c91010400040000FF000000` (enables extended data)
-5. **Notification Setup**: Enables notifications for real-time data reception
-6. **Data Reception**: Begins receiving and parsing 60-byte data packets
+5. **Data Reception**: Begins receiving and parsing 60-byte data packets
 
 ### Connection Management
 
