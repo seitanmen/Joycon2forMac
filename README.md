@@ -14,7 +14,6 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
   - Temperature sensor
 
 - **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
-- **Cross-platform Compatible**: Data format matches the Python implementation
 
 ## Requirements
 
