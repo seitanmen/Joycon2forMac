@@ -49,7 +49,7 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 ## Running
 
 1. **Ensure Bluetooth is enabled** on your Mac
-2. **Put your Joy-Con into pairing mode** (press and hold the SYNC button)
+2. **Put your Switch2 Controller into pairing mode** (press and hold the SYNC button)
 3. **Run the application**:
    ```bash
    ./build/Joycon2VirtualHID  # For full mode (BLE + HID emulation)
@@ -57,7 +57,7 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
    ./build/Joycon2BLEReceiver  # For BLE-only mode (data display only)
    ```
 4. **The app will**:
-   - Scan for Joy-Con devices
+   - Scan for Switch2 Controller devices
    - Automatically connect when found
    - Display real-time sensor data (BLE_ONLY mode)
    - Emulate HID inputs (FULL mode)
@@ -67,21 +67,23 @@ A macOS application that connects to Nintendo Joy-Con 2 controllers via Bluetoot
 The application displays data in the following format:
 
 ```
-==================================================
-Joycon2 Data:
-==================================================
-PacketID: 1991
+=================================================
+Joy-Con 2 (R) Data:
+=================================================
+Elapsed: 7555 ms
+Packet_HEX: 4F 24 0 0 0 0 0 E0 FF F FF F7 7F C 28 79 0 0 0 0 FF 11 9 C 0 47 FF 8A 2 45 FE B E 0 76 7 0 0 0 0 0 1 62 D2 60 0 8 0 E1 FA E2 4 76 E 7 0 FF FF 13 0 0 0 0
+PacketID: 9295
 Buttons: 00000000
 Pressed: None
-LeftStick: X=2041, Y=2154
-RightStick: X=2047, Y=2047
-Mouse: X=0, Y=0, DeltaX=0, DeltaY=0, Unk=0, Distance=0
-Mag: X=0, Y=0, Z=0
-Battery: 3.11V, 2.56mA
-Temperature: 25.0°C (Raw: 0)
-Accel: X=0, Y=0, Z=0
-Gyro: X=0, Y=0, Z=0
-Triggers: L=0, R=0
+Analog_Triggers: L=0, R=0
+LeftStick: X=2047, Y=2047
+RightStick: X=2060, Y=1938
+Accel: X=-1311, Y=1250, Z=3702
+Gyro: X=7, Y=-1, Z=19
+Mag: X=18176, Y=-29953, Z=17666
+Mouse: X=0, Y=0, DeltaX=0, DeltaY=0
+Battery: 3.60V, 2.56mA
+Temperature: 25.1°C
 ```
 
 ## Data Fields
