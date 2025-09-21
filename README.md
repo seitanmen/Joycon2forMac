@@ -218,6 +218,10 @@ The application includes a comprehensive logging system with timestamps and log 
 - **src/main_ble.mm**: BLE受信モードのメイン関数。Joycon2BLEReceiverとJoycon2VirtualHIDを初期化し、スキャンを開始。
 - **src/main_hid.mm**: HIDエミュレーションモードのメイン関数。Joycon2VirtualHIDを初期化し、エミュレーションを開始。
 
+## Acknowledgments
+
+This project is based on the work from [Joycon2test](https://github.com/yujimny/Joycon2test). We thank the original authors for their contributions to the Joy-Con BLE communication implementation.
+
 ## License
 
 MIT License
