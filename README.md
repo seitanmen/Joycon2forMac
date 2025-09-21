@@ -104,9 +104,9 @@ Temperature: 25.1°C
 ## Troubleshooting
 
 ### Connection Issues
-- Ensure your Joy-Con is charged and in pairing mode
+- Ensure your Switch2 Controller is charged and in pairing mode
 - Check that Bluetooth is enabled on your Mac
-- Make sure no other device is connected to the Joy-Con
+- Make sure no other device is connected to the Switch2 Controller
 
 ### Build Issues
 - Install Xcode Command Line Tools: `xcode-select --install`
