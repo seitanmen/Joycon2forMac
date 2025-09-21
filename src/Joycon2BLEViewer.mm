@@ -717,7 +717,11 @@ static int dataCounter = 0;
         std::cout << "\033[2J\033[1;1H"; // 画面クリアとカーソル移動
 
         std::cout << "=================================================" << std::endl;
-        std::cout << "Joycon2 Data:" << std::endl;
+        //デバイス名を取得して表示
+        Joycon2BLEViewer* viewer = [Joycon2BLEViewer sharedInstance];
+        NSString* deviceName = viewer.connectedPeripheral.name;
+        std::string nameStr = deviceName ? [deviceName UTF8String] : "Unknown Device";
+        std::cout << nameStr << " Data:" << std::endl;
         std::cout << "=================================================" << std::endl;
 
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - connectionStartTime).count();
