@@ -55,6 +55,7 @@ Due to significant code revisions currently underway, specifications are subject
    - `Joycon2BLEReceiver` (BLE_ONLY mode)
 
 ## Running
+[movie][https://github.com/user-attachments/assets/3b336845-0e06-4abf-82ea-44812d3c06d9]
 
 1. **Ensure Bluetooth is enabled** on your Mac
 2. **Put your Switch2 Controller into pairing mode** (press and hold the SYNC button)
