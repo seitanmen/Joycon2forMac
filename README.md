@@ -199,7 +199,7 @@ The application includes a comprehensive logging system with timestamps and log 
 - **include/Joycon2VirtualHID.h**: Header file for the Joycon2VirtualHID class. Defines interfaces for emulating virtual HID devices, handling mouse and gamepad inputs.
 - **src/Joycon2BLEReceiver.mm**: Implementation of the Joycon2BLEReceiver class. Handles BLE scanning, connection, data reception, parsing, logging, and sending initialization commands.
 - **src/Joycon2VirtualHID.mm**: Implementation of the Joycon2VirtualHID class. Converts Joy-Con data to HID reports and simulates mouse movements, clicks, and scrolling using CGEvent.
-- **src/main_ble.mm**: Main function for BLE receiver mode. Initializes Joycon2BLEReceiver and Joycon2VirtualHID, starts scanning.
+- **src/main_ble.mm**: Main function for BLE receiver mode. Initializes Joycon2BLEReceiver and starts scanning.
 - **src/main_hid.mm**: Main function for HID emulation mode. Initializes Joycon2VirtualHID and starts emulation.
 
 #### 日本語
@@ -207,7 +207,7 @@ The application includes a comprehensive logging system with timestamps and log 
 - **include/Joycon2VirtualHID.h**: Joycon2VirtualHIDクラスのヘッダーファイル。仮想HIDデバイスをエミュレートするためのインターフェースを定義。マウスやゲームパッドの入力を扱う。
 - **src/Joycon2BLEReceiver.mm**: Joycon2BLEReceiverクラスの実装。BLEスキャン、接続、データ受信、パース、ログ出力、初期化コマンド送信を行う。
 - **src/Joycon2VirtualHID.mm**: Joycon2VirtualHIDクラスの実装。Joy-ConデータをHIDレポートに変換し、CGEventでマウス移動、クリック、スクロールをシミュレート。
-- **src/main_ble.mm**: BLE受信モードのメイン関数。Joycon2BLEReceiverとJoycon2VirtualHIDを初期化し、スキャンを開始。
+- **src/main_ble.mm**: BLE受信モードのメイン関数。Joycon2BLEReceiverを初期化し、スキャンを開始。
 - **src/main_hid.mm**: HIDエミュレーションモードのメイン関数。Joycon2VirtualHIDを初期化し、エミュレーションを開始。
 
 ## Acknowledgments
