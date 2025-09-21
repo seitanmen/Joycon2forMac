@@ -252,4 +252,6 @@ Feel free to submit issues or pull requests for improvements.
 
 ## Notes
 
-**Disclaimer:** Nintendo Joy-Con is a registered trademark of Nintendo Co., Ltd. This project is not affiliated with, endorsed by, or sponsored by Nintendo in any way.
+**Disclaimer:** Nintendo Switch 2, Joy-Con 2, Switch 2 Pro Controller, and GameCube Controller are registered trademarks of Nintendo Co., Ltd. This project is not affiliated with Nintendo Co., Ltd. in any way and has not been authorized, endorsed, or provided by Nintendo Co., Ltd.
+
+**免責事項:** Nintendo Switch2及びJoy-Con2、Switch2 Pro Controller、ゲームキューブコントローラーは任天堂株式会社の登録商標です。本プロジェクトは任天堂株式会社と一切関係がなく、任天堂株式会社による承認・後援・提供を受けていません。
