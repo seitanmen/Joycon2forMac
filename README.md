@@ -212,13 +212,13 @@ The application includes a comprehensive logging system with timestamps and log 
 
 ## Acknowledgments
 
-This project is based on the work from
-
-[yujimny/Joycon2test](https://github.com/yujimny/Joycon2test)
+This project learned a great deal from the following projects.
 
 [TheFrano/joycon2cpp](https://github.com/TheFrano/joycon2cpp)
 
 [Tamagosushio/joycon2cpp](https://github.com/Tamagosushio/joycon2cpp)
+
+[yujimny/Joycon2test](https://github.com/yujimny/Joycon2test)
 
 We thank the authors for their contributions to the Joy-Con BLE communication implementation.
 
