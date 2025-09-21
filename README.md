@@ -185,14 +185,6 @@ The application implements robust connection management:
 - **State Tracking**: Maintains sets of connecting and connected devices
 - **Error Recovery**: Handles various BLE error conditions gracefully
 
-### Command Line Interface
-
-The main.mm file provides a command-line interface with options:
-
-- `--display-interval N`: Display data every N packets (default: 1)
-- `--help/-h`: Show usage information
-- `[address]`: Connect to specific device UUID
-
 ### Logging System
 
 The application includes a comprehensive logging system with timestamps and log levels:
