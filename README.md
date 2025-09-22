@@ -27,7 +27,7 @@ As both options require participation in the Apple Developer Program and incur c
   - Mouse mode: Controls cursor movement, clicks, and scrolling
   - Gamepad mode: Reserved for future gamepad emulation
 
-- **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
+- **Auto-discovery**: Automatically detects and connects to Nintendo Switch2 controllers
 
 ## Requirements
 
