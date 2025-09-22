@@ -67,7 +67,6 @@ As both options require participation in the Apple Developer Program and incur c
 2. **Put your Switch2 Controller into pairing mode** (press and hold the SYNC button)
 3. **Run the application**:
    ```bash
-   ./build/Joycon2VirtualHID  # For full mode (BLE + HID emulation, both mouse and gamepad)
    ./build/Joycon2VirtualHID --mouse  # For mouse-only HID emulation
    ./build/Joycon2VirtualHID --gamepad  # For gamepad-only HID emulation (not implemented yet)
    ./build/Joycon2BLEReceiver  # For BLE-only mode (data display only)
