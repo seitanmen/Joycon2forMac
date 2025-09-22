@@ -6,6 +6,12 @@ Bluetooth Low Energy（BLE）経由でNintendo Switch2コントローラーに�
 
 Due to significant code revisions currently underway, specifications are subject to change.
 
+For the game to recognize Joy-Con2 as a gamepad, it requires either developing a user-space driver for Joy-Con 2 using DriverKit or creating a real-time signal conversion layer using CoreHID.
+As both options require participation in the Apple Developer Program and incur costs that are not justified, we are suspending development at this point with the current implementation.
+
+ゲームがJoy-Con2をゲームパッドとして認識するにはDriverKitでJoy-Con2のユーザスペースドライバを開発するか、CoreHIDを使って信号のリアルタイム変換レイヤーを作る必要があります。
+そのどちらもApple Developer Programへの参加とコストに見合わないため現在の実装を以て一度中断します。
+
 ## Features
 
 - **Real-time Data Display**: Shows live data from Joy-Con controllers including:
@@ -20,7 +26,6 @@ Due to significant code revisions currently underway, specifications are subject
 - **HID Emulation**: Emulates mouse and gamepad inputs based on Joy-Con data
   - Mouse mode: Controls cursor movement, clicks, and scrolling
   - Gamepad mode: Reserved for future gamepad emulation
-  - Runtime mode switching with keyboard shortcuts (Shift+M for mouse, Shift+G for gamepad)
 
 - **Auto-discovery**: Automatically detects and connects to Joy-Con 2 controllers
 
